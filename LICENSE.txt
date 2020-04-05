@@ -1,0 +1,15 @@
+# StreamControl.exe
+Original work Copyright (c) 2012-2015, Tan Yu Sheng
+Modified work Copyright (c) 2019, Miguel Müller
+https://github.com/farpenoodle/StreamControl
+All rights reserved.
+
+# Javascript Libraries
+Rights are based on those in each file.
+https://github.com/anaakikutushita/64GB_Layout/blob/master/js/jquery-2.0.2.min.js
+https://github.com/anaakikutushita/64GB_Layout/blob/master/js/jstween-1.1.min.js
+
+# Other All Layout Files
+Modified work Copyright (c) 2019, がまのあぶら, 64GB
+Layout files are released under the MIT License.
+http://opensource.org/licenses/mit-license.php

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="css/Splash_GO_battle.css" type="text/css" charset="utf-8">
+        <script src="js/jquery-2.0.2.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/jstween-1.1.min.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript">
+            var timestampOld;
+			var timestamp;
+
+			var round;
+            var OrangeScore;
+            var BlueScore;
+            var OrangeTeamName;
+            var BlueTeamName;
+            var OrangePlayer1;
+            var OrangePlayer2;
+            var OrangePlayer3;
+            var OrangePlayer4;
+            var BluePlayer1;
+            var BluePlayer2;
+            var BluePlayer3;
+            var BluePlayer4;
+
+var xmlDoc;
+var xhr = new XMLHttpRequest();
+
+var doUpdate = false;
+
+function init() {
+
+    xhr.overrideMimeType('text/xml');
+
+    var timeout = this.window.setInterval(function() {
+        pollHandler();
+    }, 250);
+
+    $('#round').html('');
+    $('#OrangeScore').html('');
+    $('#BlueScore').html('');
+    $('#OrangeTeamName').html('');
+    $('#BlueTeamName').html('');
+    $('#OrangePlayer1').html('');
+    $('#OrangePlayer2').html('');
+    $('#OrangePlayer3').html('');
+    $('#OrangePlayer4').html('');
+    $('#BluePlayer1').html('');
+    $('#BluePlayer2').html('');
+    $('#BluePlayer3').html('');
+    $('#BluePlayer4').html('');
+    $('#board').tween({
+        top:{
+            start: '-100',
+            stop: '0',
+            units: 'px',
+            time: 0,
+            duration: 0.8,
+            effect:'easeOut'
+        }
+    });
+
+    $.play();
+}
+
+function pollHandler()
+{
+    loadData();
+    if (timestamp != timestampOld) {
+        doUpdate = true;
+    }
+    if (doUpdate) {
+        updateBoard();
+    }
+}
+
+function loadData() {
+    xhr.open('GET', 'streamcontrol.xml');
+    xhr.send();
+    xhr.onreadystatechange = function(){
+        xmlDoc = xhr.responseXML;
+
+        round          = getValueFromTag(xmlDoc,'round')
+        OrangeScore    = getValueFromTag(xmlDoc,'OrangeScore')
+        BlueScore      = getValueFromTag(xmlDoc,'BlueScore')
+        OrangeTeamName = getValueFromTag(xmlDoc,'OrangeTeamName')
+        BlueTeamName   = getValueFromTag(xmlDoc,'BlueTeamName')
+        OrangePlayer1  = getValueFromTag(xmlDoc,'OrangePlayer1')
+        OrangePlayer2  = getValueFromTag(xmlDoc,'OrangePlayer2')
+        OrangePlayer3  = getValueFromTag(xmlDoc,'OrangePlayer3')
+        OrangePlayer4  = getValueFromTag(xmlDoc,'OrangePlayer4')
+        BluePlayer1    = getValueFromTag(xmlDoc,'BluePlayer1')
+        BluePlayer2    = getValueFromTag(xmlDoc,'BluePlayer2')
+        BluePlayer3    = getValueFromTag(xmlDoc,'BluePlayer3')
+        BluePlayer4    = getValueFromTag(xmlDoc,'BluePlayer4')
+
+        timestampOld = timestamp;
+        timestamp = getValueFromTag(xmlDoc,'timestamp');
+    }
+}
+
+function getValueFromTag (xmlDoc,tag) {
+    if (xmlDoc.getElementsByTagName(tag).length != 0 ) {
+        if (xmlDoc.getElementsByTagName(tag)[0].childNodes.length == 0) {
+                return '';
+            } else {
+                return xmlDoc.getElementsByTagName(tag)[0].childNodes[0].nodeValue;
+        }
+    } else {
+        return '';
+    }
+}
+
+function updateBoard() {
+    //アニメーション処理を入れたい場合はここ
+    $('#round').html(round)
+    $('#OrangeScore').html(OrangeScore)
+    $('#BlueScore').html(BlueScore)
+    $('#OrangeTeamName').html(OrangeTeamName)
+    $('#BlueTeamName').html(BlueTeamName)
+    $('#OrangePlayer1').html(OrangePlayer1)
+    $('#OrangePlayer2').html(OrangePlayer2)
+    $('#OrangePlayer3').html(OrangePlayer3)
+    $('#OrangePlayer4').html(OrangePlayer4)
+    $('#BluePlayer1').html(BluePlayer1)
+    $('#BluePlayer2').html(BluePlayer2)
+    $('#BluePlayer3').html(BluePlayer3)
+    $('#BluePlayer4').html(BluePlayer4)
+
+    $.play();
+
+    doUpdate = false;
+}
+        </script>
+    </head>
+    <body onload="init()">
+        <div id="board">
+            <div id="round"></div>
+            <div id="OrangeScore" class="score"></div>
+            <div id="OrangeTeamName" class="team-name orange-color"></div>
+            <div id="OrangePlayer1" class="orange-player-name orange-color"></div>
+            <div id="OrangePlayer2" class="orange-player-name orange-color"></div>
+            <div id="OrangePlayer3" class="orange-player-name orange-color"></div>
+            <div id="OrangePlayer4" class="orange-player-name orange-color"></div>
+            <div id="BlueScore" class="score"></div>
+            <div id="BlueTeamName" class="team-name blue-color"></div>
+            <div id="BluePlayer1" class="blue-player-name blue-color"></div>
+            <div id="BluePlayer2" class="blue-player-name blue-color"></div>
+            <div id="BluePlayer3" class="blue-player-name blue-color"></div>
+            <div id="BluePlayer4" class="blue-player-name blue-color"></div>
+        </div>
+    </body>
+</html>
