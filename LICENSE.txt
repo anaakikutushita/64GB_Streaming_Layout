@@ -6,8 +6,8 @@ All rights reserved.
 
 # Javascript Libraries
 Rights are based on those in each file.
-https://github.com/anaakikutushita/64GB_Layout/blob/master/js/jquery-2.0.2.min.js
-https://github.com/anaakikutushita/64GB_Layout/blob/master/js/jstween-1.1.min.js
+https://github.com/anaakikutushita/64GB_Streaming_Layout/blob/master/js/jquery-2.0.2.min.js
+https://github.com/anaakikutushita/64GB_Streaming_Layout/blob/master/js/jstween-1.1.min.js
 
 # Other All Layout Files
 Modified work Copyright (c) 2019, がまのあぶら, 64GB

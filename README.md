@@ -26,4 +26,4 @@ If you want to display long names, modify the layout file accordingly and use it
 長い名前を表示したい場合、レイアウトファイルを適宜修正して使って下さい。
 
 ## Licence
-https://github.com/anaakikutushita/64GB_Layout/blob/master/LICENSE.txt
+https://github.com/anaakikutushita/64GB_Streaming_Layout/blob/master/LICENSE.txt
