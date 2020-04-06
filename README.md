@@ -16,6 +16,10 @@ Please refer to the following website for how to use this software.
 ### Developer's website
 http://farpnut.net/streamcontrol/
 
+また、完全なドキュメントではありませんが、このレイアウトを使うための日本人向けの情報を下記の記事に記載しています。
+
+[ライブ配信者向けレイアウト構築システム「StreamControl」の使い方](https://qiita.com/Anaakikutsushit/items/27948a73010cd2dfedb0)
+
 ### Important point
 Currently, this layout has a limit on the number of characters that can be displayed in the space for team names and the space for player names.
 Only 10 characters can be displayed on one line for team names and 8 characters for player names. If the number of characters is exceeded, the entered characters will be displayed on a new line.
